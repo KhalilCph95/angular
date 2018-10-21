@@ -1,0 +1,17 @@
+<h1>Mine projekter</h1>
+<!-- Starter min løkke her -->
+<div class="row" *ngIf="arrProjekter">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <!-- Trækker data ud af min json fil -->
+            <a *ngFor="let projekt of arrProjekter" class="list-group-item list-group-item-action" id="list-projekt{{projekt.id}}-list" data-toggle="list" href="#list-projekt{{projekt.id}}" role="tab">{{projekt.id}} - {{projekt.projekt_navn}}</a>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="vaelg" role="tabpanel">Vælg et projekt og læs mere</div>
+            <div *ngFor="let projekt of arrProjekter" class="tab-pane fade show" id="list-projekt{{projekt.id}}" role="tabpanel">{{projekt.beskrivelse}}</div>
+        </div>
+    </div>
+</div>
